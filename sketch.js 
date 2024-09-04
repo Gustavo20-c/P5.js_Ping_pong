@@ -1,0 +1,91 @@
+function setup() {
+      createCanvas(400, 400);
+}
+
+function draw() {
+      background(220);
+}let ball;
+
+let leftPaddle, rightPaddle;
+
+let ballSpeed = 5;
+
+let paddleWidth = 10;
+
+let paddleHeight = 100;
+
+function setup() {
+
+      createCanvas(800, 400);
+
+        ball = new Ball();
+
+          leftPaddle = new Paddle(30);
+
+            rightPaddle = new Paddle(width - 40);
+
+}
+
+function draw() {
+
+      background(0);
+
+        ball.update();
+
+          ball.checkEdges();
+
+            ball.checkPaddle(leftPaddle);
+
+              ball.checkPaddle(rightPaddle);
+
+                ball.show();
+
+                  leftPaddle.update();
+
+                    leftPaddle.show();
+
+                      rightPaddle.update();
+
+                        rightPaddle.show();
+
+}
+
+class Ball {
+
+      constructor() {
+
+            this.x = width / 2;
+
+                this.y = height / 2;
+
+                    this.xspeed = ballSpeed;
+
+                        this.yspeed = ballSpeed;
+
+      }
+
+        update() {
+
+                this.x += this.xspeed;
+
+                    this.y += this.yspeed;
+
+        }
+
+          checkEdges() {
+
+                if (this.y > height || this.y < 0) {
+
+                          this.yspeed *= -1;
+
+                }
+                
+                }
+          }
+        }
+      }
+}
+}
+}
+}
+}
